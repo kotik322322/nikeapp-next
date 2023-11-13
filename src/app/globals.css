@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .hoverEffect {
+    @apply hover:bg-[#e5e5e5] transition-all duration-300
+  }
+}
+
