@@ -23,17 +23,15 @@ const links = [
 
 const Sidebar = () => {
   return (
-        <div className=" flex items-center gap-x-3 ">
-    <button className="w-[36px] h-[36px] flex items-center justify-center rounded-full hoverEffect">
+    <div className=" flex items-center gap-x-3 ">
+      <button className="w-[36px] h-[36px] flex items-center justify-center rounded-full hoverEffect">
         <Image src={searchIcon} alt="search icon" width={24} height={24} />
       </button>
 
-
-       
-        
       {links?.map((item) => {
         return (
           <Link
+            key={item.link}
             href={item.link}
             className="relative w-[36px] h-[36px] flex items-center justify-center rounded-full hoverEffect"
           >

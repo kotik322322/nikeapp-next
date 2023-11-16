@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
+        // "bgNotFound": "/logo.svg"
       },
       colors: {
         grey: "#e5e5e5"
