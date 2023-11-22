@@ -12,7 +12,8 @@ const config: Config = {
         // "bgNotFound": "/logo.svg"
       },
       colors: {
-        grey: "#e5e5e5"
+        grey: "#e5e5e5",
+        main: "#f6f6f6"
       }
     },
   },

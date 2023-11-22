@@ -1,22 +1,103 @@
-import React from 'react'
+"use client";
+
+import Container from "@/components/Container";
+import ProductSlider from "@/components/ProductSlider";
+
+const item = {
+  _id: "64d02466db747d48c23a9f29",
+  category: "men",
+  mainImg:
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/1_spxj1h.webp",
+  images: [
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/1_spxj1h.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/2_s82kfe.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307514/shoses/men/4/3_zl0dsk.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307516/shoses/men/4/4_pwxbwy.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/5_odao0l.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307512/shoses/men/4/6_lv9adw.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/7_zxrb8l.webp",
+    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/8_ufly6t.webp",
+  ],
+  title: "Nike Dunk Low",
+  description:
+    "Created for the hardwood but taken to the streets, this '80s b-ball icon returns with classic details and throwback hoops flair. The supple leather overlays help the Nike Dunk channel vintage style while its padded, low-cut collar lets you take your game anywhere—in comfort.",
+  price: 114.95,
+  newPrice: 110,
+  isNew: true,
+  sizes: ["2.5", "3.5", "4,5", "5", "6"],
+};
 
 const ProductPage = () => {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tempore repellat labore nam ipsa porro, quod beatae aperiam provident doloribus officia officiis similique ea exercitationem accusantium incidunt non possimus soluta.
-    A cum delectus nulla earum itaque animi nesciunt perferendis optio, vel vitae, dolorum totam neque, maxime dignissimos modi laboriosam! Similique dignissimos accusantium sequi. Iusto dolores minus nihil vero, commodi esse.
-    Amet, dolore! Possimus voluptates, totam assumenda nostrum quo maxime eius natus culpa. Cumque quasi dicta deserunt sequi aspernatur. Cum minima in doloribus assumenda dolorem! Reiciendis dolore nesciunt explicabo recusandae mollitia?
-    Quae quod, odio, harum quidem nam hic voluptates ut vel officiis distinctio quos quis nemo ipsam nulla minima enim facilis ullam nobis. Illum dignissimos architecto quasi quod sapiente aliquam hic.
-    Porro, delectus odit molestias voluptatibus cupiditate ea. Quibusdam suscipit quam id rem aspernatur quis, pariatur vero laboriosam tempora necessitatibus illo dignissimos tempore aut iusto neque reiciendis in tenetur odit deserunt.
-    Sequi saepe fugit molestiae quibusdam dolor error ipsam in iure cum. Adipisci facere iste quam quod atque velit esse, consequuntur fugiat corporis nostrum eveniet dolores cupiditate animi dolor perspiciatis mollitia.
-    Temporibus perspiciatis magnam laboriosam ipsam esse non quam optio fuga sed architecto? Voluptatibus doloribus aspernatur, repellat ab, minus illum delectus dolorem dignissimos corrupti velit molestiae quia quos dolore molestias nemo.
-    Beatae nesciunt magni amet sint iusto, provident laudantium debitis perferendis non ex distinctio est quibusdam dolor sequi omnis corporis placeat explicabo a, voluptatem consequuntur. Modi cum error fuga est natus?
-    Nihil nam voluptas totam atque repellendus voluptatibus vitae deserunt, consectetur dolorem. Eveniet, expedita eum! Laboriosam eligendi perspiciatis repellendus nobis fugiat facilis voluptatibus assumenda, recusandae, neque quisquam iusto tempora, ab iste?
-    Autem, atque voluptatum. Ipsum nulla fuga, cupiditate quos et sit dolor minima nemo. At asperiores sint quasi ab dicta dolores? Excepturi assumenda odio repellat, aliquid harum totam! Alias, quis repellat?
-    Accusantium suscipit voluptas nulla rerum? Qui exercitationem alias debitis minima a sequi inventore dicta? Asperiores totam, laudantium alias, quis dolor nam sed dicta ipsa ea, delectus perspiciatis saepe cupiditate eligendi.
-    Voluptatum alias perferendis tenetur, laudantium ullam earum, ducimus rerum quam amet itaque quas illo nemo dolorem culpa, reprehenderit neque! Magni, eligendi dolorum rem tempore voluptatibus tenetur maiores! Quibusdam, doloremque libero.
-    Debitis odit, consequuntur error dolore corrupti atque iste magnam quos iusto fugit eveniet quasi placeat accusamus. Praesentium enim deserunt voluptate assumenda dicta quis doloremque soluta. Nobis deserunt provident rem numquam?
-    Quae reprehenderit, in vero voluptatum modi officiis dolorum, minima quo quibusdam repellendus vitae nulla? Ab, eaque quisquam culpa nobis, dolores, labore delectus beatae ipsum eveniet perspiciatis magnam reprehenderit voluptates consequuntur!</div>
-  )
-}
+    <Container>
+      <div>
+        <h3 className="text-2xl lg:text-[34px] font-bold text-center my-4">
+          {item.title}
+        </h3>
 
-export default ProductPage
+        <div className="flex flex-col md:flex-row items-center justify-center gap-x-4">
+          {/* slider  */}
+          <ProductSlider />
+          {/* slider end */}
+
+          <div className="flex flex-1 flex-col gap-y-10">
+            <div className="flex flex-col">
+              {/* price */}
+              <span className="font-bold text-xl my-4"> $ {item.price}</span>
+
+              {/* description  */}
+              <p className="text-[12px] leading-[20px] mb-4">
+                {item.description}
+              </p>
+
+              {/* buttons "Add to cart" & "Add to Favorite"  */}
+              <div className="flex flex-col items-center justify-center gap-y-3 mb-3">
+                <button
+                  className="hover:bg-hoverColor bg-[#000000]"
+                  // text="white"
+                  // onClick={() => dispatch(addToCart(item))}
+                >
+                  Add to Bag
+                  {/* <img src={bag} alt="" className="ml-2"/> */}
+                </button>
+
+                <button
+                  className="border border-1 border-black hover:border-black hover:shadow-xl "
+                  // text="black"
+                  // onClick={() => dispatch(addToWishList(item))}
+                >
+                  Add to Favorite
+                  {/* <img src={like} className="ml-2" /> */}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+export default ProductPage;
+
+// {/* <div className="flex flex-col justify-center gap-y-2  md:w-1/2 md:flex-row">
+// {/* images  */}
+// <div className="order-1 md:order-none w-full">
+//   <div className="flex flex-row md:flex-col gap-x-2 md:gap-y-2  lg:w-[50px] overflow-x-auto">
+//     {item.images.map((image: string, index: number) => (
+//       <img
+//         src={image}
+//         alt=""
+//         key={index}
+//         // onClick={() => changeMainImg(image)}
+//         className="cursor-pointer rounded-md border border-black w-[40px]"
+//       />
+//     ))}
+//   </div>
+// </div>
+// {/* main images  */}
+
+// <div className="">
+//   {/* <img src={selectedImg} alt="" className="" /> */}
+// </div>
+// </div> */}

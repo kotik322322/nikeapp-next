@@ -8,5 +8,5 @@ export interface IItem {
   newPrice: number;
   isNew?: boolean;
   category?: string;
-  // sizes: string[];
+  sizes?: string[];
 }
