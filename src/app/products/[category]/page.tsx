@@ -25,7 +25,7 @@ const getProducts = async (category: string) => {
 };
 
 const Products = async ({params: {category}} : Props) => {
-  console.log(category)
+
   const data = await getProducts(category);
 
   return (
