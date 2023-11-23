@@ -36,6 +36,7 @@ const ProductPage = () => {
         </h3>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-x-4">
+          
           {/* slider  */}
           <ProductSlider />
           {/* slider end */}
@@ -44,16 +45,18 @@ const ProductPage = () => {
             <div className="flex flex-col">
               {/* price */}
               <span className="font-bold text-xl my-4"> $ {item.price}</span>
+              {/* price end */}
 
               {/* description  */}
-              <p className="text-[12px] leading-[20px] mb-4">
+              <p className="text-[14px] leading-[20px] mb-4">
                 {item.description}
               </p>
+              {/* description end */}
 
               {/* buttons "Add to cart" & "Add to Favorite"  */}
-              <div className="flex flex-col items-center justify-center gap-y-3 mb-3">
+              <div className="flex flex-col items-center justify-center gap-y-3 my-4">
                 <button
-                  className="hover:bg-hoverColor bg-[#000000]"
+                  className="w-full py-3 rounded-full bg-black text-white hover:bg-bgHover duration-200"
                   // text="white"
                   // onClick={() => dispatch(addToCart(item))}
                 >
@@ -62,7 +65,7 @@ const ProductPage = () => {
                 </button>
 
                 <button
-                  className="border border-1 border-black hover:border-black hover:shadow-xl "
+                  className="w-full py-3 border border-1 border-black  rounded-full  text-black hover:shadow-xl duration-200 "
                   // text="black"
                   // onClick={() => dispatch(addToWishList(item))}
                 >
@@ -80,24 +83,4 @@ const ProductPage = () => {
 
 export default ProductPage;
 
-// {/* <div className="flex flex-col justify-center gap-y-2  md:w-1/2 md:flex-row">
-// {/* images  */}
-// <div className="order-1 md:order-none w-full">
-//   <div className="flex flex-row md:flex-col gap-x-2 md:gap-y-2  lg:w-[50px] overflow-x-auto">
-//     {item.images.map((image: string, index: number) => (
-//       <img
-//         src={image}
-//         alt=""
-//         key={index}
-//         // onClick={() => changeMainImg(image)}
-//         className="cursor-pointer rounded-md border border-black w-[40px]"
-//       />
-//     ))}
-//   </div>
-// </div>
-// {/* main images  */}
 
-// <div className="">
-//   {/* <img src={selectedImg} alt="" className="" /> */}
-// </div>
-// </div> */}

@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 
 const item = {
   _id: "64d02466db747d48c23a9f29",
@@ -29,30 +29,25 @@ const item = {
 const ProductSlider = () => {
   const { images, mainImg } = item;
 
-  const [selectedImg, setSelectedImg] = React.useState("");
-
-  React.useEffect(() => {
-    setSelectedImg(mainImg);
-  }, [mainImg]);
+  const [selectedImg, setSelectedImg] = React.useState<string>(images[0]);
 
   const changeMainImg = (image: string) => {
-    console.log(image);
     setSelectedImg(image);
   };
 
   return (
-    <div className="max-w-[600px] flex gap-x-10">
+    <div className="max-w-[600px] flex flex-col-reverse gap-y-4 md:flex-row md:gap-x-10 ">
       {/* Images  */}
-      <div className="flex flex-col gap-y-3">
+      <div className="flex flex-row md:flex-col gap-y-3 gap-x-1 overflow-x-auto ">
         {images.map((image: string, index: number) => (
           <Image
             src={image}
             alt="Slider images"
-            width={60}
-            height={60}
+            width={40}
+            height={40}
             key={index}
             onClick={() => changeMainImg(image)}
-            className="cursor-pointer rounded-md border border-black w-[40px]"
+            className={`w-auto cursor-pointer rounded-md border ${image === selectedImg ? "border-black" : "border-grey" }`}
           />
         ))}
       </div>

@@ -13,7 +13,8 @@ const config: Config = {
       },
       colors: {
         grey: "#e5e5e5",
-        main: "#f6f6f6"
+        main: "#f6f6f6",
+        bgHover: "#4b4b4b"
       }
     },
   },
