@@ -1,13 +1,21 @@
+"use client"
 import Container from "@/components/Container";
 import React from "react";
 import { data } from "@/constants/data";
 import { IProduct } from "@/types";
 import Product from "@/components/Product";
 
+interface Props {
+  params: {
+    category: string
+  }
+}
+
 // Здесь нужно будет переписать адрес сервера, когда я создам новый;
-const getProducts = async () => {
+const getProducts = async (category: string) => {
   const res = await fetch(
-    "https://nikeapp-backend.onrender.com/api/shop/items"
+    // "https://nikeapp-backend.onrender.com/api/shop/items"
+    `https://nikeapp-backend.onrender.com/api/shop/category/${category}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -16,8 +24,9 @@ const getProducts = async () => {
   return res.json();
 };
 
-const Products = async () => {
-  const data = await getProducts();
+const Products = async ({params: {category}} : Props) => {
+  console.log(category)
+  const data = await getProducts(category);
 
   return (
     <Container className="my-20">

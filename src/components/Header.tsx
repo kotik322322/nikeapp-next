@@ -16,19 +16,19 @@ import Logo from "./Logo";
 const links = [
   {
     title: "All",
-    link: "/all",
+    link: "all",
   },
   {
     title: "Men",
-    link: "/men",
+    link: "men",
   },
   {
     title: "Women",
-    link: "/women",
+    link: "women",
   },
   {
     title: "Kids",
-    link: "/kids",
+    link: "kids",
   },
 ];
 
@@ -47,7 +47,7 @@ const Header = () => {
             {links?.map((item, index) => (
               <li key={index}>
                 <Link
-                  href={item?.link}
+                  href={`/products/${item?.link}`}
                   className="pb-3 w-full border-b-2 border-transparent hover:border-black transition-all duration-200"
                 >
                   {item?.title}

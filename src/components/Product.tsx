@@ -20,7 +20,7 @@ const Product = ({ product }: ProductProps) => {
       <Link
         key={product?._id}
         href={{
-          pathname: `products/${product._id}`,
+          pathname: `${product.category}/${product._id}`,
           
         }}
         // href={{ pathname: "/products", query: { _id: product._id } }}
