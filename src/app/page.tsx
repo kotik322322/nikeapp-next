@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-      <div className="">
-        {/* <video autoPlay loop muted playsInline className="w-full h-full absolute top-0 bottom-0 left-0 right-0 object-cover"> */}
-        <video autoPlay loop muted playsInline className="w-full h-screen flex justify-center items-center object-cover">
+      <div className="w-full h-full  ">
+        <video autoPlay loop muted playsInline className="w-full h-full absolute top-0 bottom-0 left-0 right-0 object-cover">
+        {/* <video autoPlay loop muted playsInline className="object-cover"> */}
           <source src="/videos/videobg.mp4" type="video/mp4" />
         </video>
 

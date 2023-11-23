@@ -24,11 +24,11 @@ export default function RootLayout({
          
       `}
       >
-        <div className="flex flex-col h-screen">
+        <div className="h-screen ">
           <Header />
-          <main className="flex-1">{children}</main>
-        <Footer />
+          <main className="">{children}</main>
         </div>
+        <Footer />
       </body>
     </html>
   );
