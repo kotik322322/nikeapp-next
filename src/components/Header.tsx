@@ -36,7 +36,7 @@ const Header = () => {
   const pathName = usePathname()
    
     return (
-    <header className="w-full fixed top-0 bg-white shadow-sm z-20">
+    <header className="w-full fixed top-0 right-0 left-0 bg-white shadow-sm z-20">
       <Container>
         <div className="flex items-center justify-between ">
 

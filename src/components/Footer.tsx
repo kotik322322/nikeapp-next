@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="w-full py-4 bg-black text-white">
+    <div className=" w-full py-4 bg-black text-white">
       <Container className="flex flex-col justify-center items-center">
         <div className="">
           <ul className="text-2xl flex items-center justify-center gap-x-4 py-4">
