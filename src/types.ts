@@ -1,4 +1,4 @@
-export interface IItem {
+export interface IProduct {
   _id: string;
   mainImg: string;
   images: string[];
