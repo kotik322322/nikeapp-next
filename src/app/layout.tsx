@@ -20,13 +20,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} 
-      bg-[#f6f6f6] 
+      bg-[#f6f6f6]
          
       `}
       >
-        <div className="h-screen ">
+        <div className="min-h-screen flex flex-col items-center justify-center">
           <Header />
-          <main className="">{children}</main>
+          <main className="flex-1 w-full h-full">{children}</main>
         </div>
         <Footer />
       </body>
