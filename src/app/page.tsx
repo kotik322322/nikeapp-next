@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0" >
+    <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 overflow-hidden" >
       <video
         autoPlay
         loop
