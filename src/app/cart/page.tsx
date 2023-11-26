@@ -1,19 +1,21 @@
+"use client"
 import Container from "@/components/Container";
 import CartProduct from "@/components/CartProduct";
+import { useSelector } from "react-redux"
+import { IProduct } from "@/types";
 
 const Cart = () => {
+
+  const {productData : data} = useSelector(state => state.cart)
+  
+  console.log(data)
   return (
     <Container>
       <h2 className="text-2xl font-semibold my-4">Cart Page</h2>
 
 
       <div className="flex flex-col gap-y-3">
-      <CartProduct />
-      <CartProduct />
-      <CartProduct />
-      <CartProduct />
-      <CartProduct />
-      <CartProduct />
+      {data && data?.map((product : IProduct) => <CartProduct product={product} />)}
       </div>
 
 

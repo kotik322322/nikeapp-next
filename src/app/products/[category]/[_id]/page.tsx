@@ -5,38 +5,40 @@ import ProductSlider from "@/components/ProductSlider";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { IProduct } from "@/types";
+import { addToCart } from "@/store/cartSlice";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
+interface Props {
+  params: {
+    _id: string;
+  };
+}
 
+const getProductById = async (id: string) => {
+  const res = await fetch(
+    `https://nikeapp-backend.onrender.com/api/shop/${id}`
+  );
 
-  interface Props {
-    params: {
-      _id: string
-    }
-  }
+  return res.json();
+};
 
-  const getProductById = async (id: string) => {
-      const res = await fetch(`https://nikeapp-backend.onrender.com/api/shop/${id}`)
+const ProductDetailsPage = async ({ params: { _id } }: Props) => {
+  const dispatch = useDispatch();
 
-      return res.json()
-  }
-
-
-
-const ProductDetailsPage = async ({params: {_id}}:Props) => {
-
-  const product: IProduct = await getProductById(_id)
+  const product: IProduct = await getProductById(_id);
 
   return (
     <Container>
+
       <div>
         <h3 className="text-2xl lg:text-[34px] font-bold text-center my-4">
           {product.title}
         </h3>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-x-4">
-          
           {/* slider  */}
-          <ProductSlider  images = {product.images}/>
+          <ProductSlider images={product.images} />
           {/* slider end */}
 
           <div className="flex flex-1 flex-col gap-y-10">
@@ -54,11 +56,11 @@ const ProductDetailsPage = async ({params: {_id}}:Props) => {
               {/* buttons "Add to cart" & "Add to Favorite"  */}
               <div className="flex flex-col items-center justify-center gap-y-3 my-4">
                 <button
+                  onClick={() => dispatch(addToCart(product)) && toast.success("You added to cart")}
                   className="w-full py-3 flex items-center justify-center gap-x-4 rounded-full bg-black text-white hover:bg-bgHover duration-200"
-                  // onClick={() => dispatch(addToCart(item))}
                 >
                   Add to Bag
-                  <IoBagCheckOutline className="text-xl"/>
+                  <IoBagCheckOutline className="text-xl" />
                 </button>
 
                 <button
@@ -67,7 +69,7 @@ const ProductDetailsPage = async ({params: {_id}}:Props) => {
                   // onClick={() => dispatch(addToWishList(item))}
                 >
                   Add to Favorite
-                  <CiHeart className="text-xl"/>
+                  <CiHeart className="text-xl" />
                 </button>
               </div>
             </div>
@@ -75,10 +77,7 @@ const ProductDetailsPage = async ({params: {_id}}:Props) => {
         </div>
       </div>
     </Container>
-
   );
 };
 
 export default ProductDetailsPage;
-
-

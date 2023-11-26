@@ -1,14 +1,17 @@
-// "use client";
+"use client";
 
+import { addToCart } from "@/store/cartSlice";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import {useDispatch} from "react-redux"
 
 interface ProductProps {
   product: IProduct;
 }
 
 const Product = ({ product }: ProductProps) => {
+  const dispatch = useDispatch()
   return (
     <div className="w-full relative bg-[#f6f6f6] border border-grey rounded-sm">
       {product && product.isNew && (

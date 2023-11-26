@@ -9,25 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
 import Logo from "./Logo";
-
-const links = [
-  {
-    title: "All",
-    link: "/all",
-  },
-  {
-    title: "Men",
-    link: "/men",
-  },
-  {
-    title: "Women",
-    link: "/women",
-  },
-  {
-    title: "Kids",
-    link: "/kids",
-  },
-];
+import { links } from "@/constants/data";
 
 const MobileNavigation = () => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -72,10 +54,10 @@ const MobileNavigation = () => {
             <Logo width={100} height={100}  onClick={toggleMenu}/>
 
             {/* Links  */}
-            <ul className="flex flex-col  gap-y-8 font-semibold">
+            <ul className="flex flex-col   gap-y-8 font-semibold">
               {links.map((link, index) => (
-                <li key={index}>
-                  <Link href={link.link} >
+                <li key={index} onClick={() => setIsOpen(false)}>
+                  <Link href={`/products/${link.href}`} >
                     {link.title}
                   </Link>
                 </li>

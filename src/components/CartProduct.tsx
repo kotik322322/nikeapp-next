@@ -5,39 +5,16 @@ import Image from "next/image";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
+import { IProduct } from "@/types";
 
-const item = {
-  _id: "64d02466db747d48c23a9f29",
-  category: "men",
-  mainImg:
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/1_spxj1h.webp",
-  images: [
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/1_spxj1h.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/2_s82kfe.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307514/shoses/men/4/3_zl0dsk.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307516/shoses/men/4/4_pwxbwy.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/5_odao0l.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307512/shoses/men/4/6_lv9adw.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307513/shoses/men/4/7_zxrb8l.webp",
-    "https://res.cloudinary.com/drw1dnak7/image/upload/v1690307515/shoses/men/4/8_ufly6t.webp",
-  ],
-  title: "Nike Dunk Low",
-  description:
-    "Created for the hardwood but taken to the streets, this '80s b-ball icon returns with classic details and throwback hoops flair. The supple leather overlays help the Nike Dunk channel vintage style while its padded, low-cut collar lets you take your game anywhere—in comfort.",
-  price: 114.95,
-  newPrice: 110,
-  isNew: true,
-  sizes: ["2.5", "3.5", "4,5", "5", "6"],
-  itemQuantity: 14,
-};
 
-const CartProduct = () => {
+const CartProduct = ({product} : {product: IProduct}) => {
   return (
-    <div className="flex justify-between items-center border border-grey rounded-md">
+    <div className="flex justify-between items-center border border-grey rounded-md " key={product._id}>
       {/* item photo  */}
-      <Link href={`/products/${item._id}`}>
+      <Link href={`/products/${product._id}`}>
         <Image
-          src={item.mainImg}
+          src={product.mainImg}
           alt="Cart Product Logo"
           width={120}
           height={120}
@@ -49,7 +26,7 @@ const CartProduct = () => {
       <div className="flex flex-col md:flex-row w-full md:justify-around items-center justify-center gap-y-2  ">
 
         {/* item price  */}
-        <span>$ {item.price}</span>
+        <span>$ {product.price}</span>
         {/* item price end */}
 
         {/* item quantity&& increase and decrease  */}
