@@ -7,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { IProduct } from "@/types";
 
 
+
   interface Props {
     params: {
       _id: string
@@ -74,6 +75,7 @@ const ProductDetailsPage = async ({params: {_id}}:Props) => {
         </div>
       </div>
     </Container>
+
   );
 };
 
