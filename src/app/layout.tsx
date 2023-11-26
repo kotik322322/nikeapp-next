@@ -24,9 +24,9 @@ export default function RootLayout({
          
       `}
       >
-        <div className="min-h-screen flex flex-col items-center justify-center">
+        <div className="min-h-screen flex flex-col">
           <Header />
-          <main className="flex-1 w-full h-full">{children}</main>
+          <main className="flex-1">{children}</main>
         </div>
         <Footer />
       </body>

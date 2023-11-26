@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 overflow-hidden" >
-      <video
+    <div className="w-full h-full overflow-hidden"  >
+      <div className="" style={{ height: 'calc(100vh - 80px)' }}>
+        <video
         autoPlay
         loop
         muted
@@ -12,6 +13,7 @@ export default function Home() {
       >
         <source src="/videos/videobg.mp4" type="video/mp4" />
       </video>
+      </div>
       <div className=" text-center absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
         <Link
           href={"/products/all"}
