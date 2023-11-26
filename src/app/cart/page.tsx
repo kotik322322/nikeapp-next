@@ -15,7 +15,7 @@ const Cart = () => {
 
 
       <div className="flex flex-col gap-y-3">
-      {data && data?.map((product : IProduct) => <CartProduct product={product} />)}
+      {data && data?.map((product : IProduct) => <CartProduct product={product} key={product._id}/>)}
       </div>
 
 

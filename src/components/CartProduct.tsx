@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { IProduct } from "@/types";
@@ -10,7 +9,7 @@ import { IProduct } from "@/types";
 
 const CartProduct = ({product} : {product: IProduct}) => {
   return (
-    <div className="flex justify-between items-center border border-grey rounded-md " key={product._id}>
+    <div className="flex justify-between items-center border border-grey rounded-md " >
       {/* item photo  */}
       <Link href={`/products/${product.category}/${product._id}`}>
         <Image
