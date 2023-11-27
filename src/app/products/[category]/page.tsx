@@ -1,7 +1,7 @@
-"use client"
+// "use client"
 import Container from "@/components/Container";
 import React from "react";
-import { data } from "@/constants/data";
+// import { data } from "@/constants/data";
 import { IProduct } from "@/types";
 import Product from "@/components/Product";
 
