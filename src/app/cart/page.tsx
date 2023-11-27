@@ -2,11 +2,11 @@
 import Container from "@/components/Container";
 import CartProduct from "@/components/CartProduct";
 import { useSelector } from "react-redux"
-import { IProduct } from "@/types";
+import { IProduct, StateProps } from "@/types";
 
 const Cart = () => {
 
-  const {productData : data} = useSelector(state => state.cart)
+  const {productData : data} = useSelector((state:StateProps) => state.cart)
   
   console.log(data)
   return (

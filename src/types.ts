@@ -15,3 +15,9 @@ export interface IProduct {
 //   title: string,
 //   href: string
 // }
+
+export interface StateProps {
+  cart: {
+    productData: [],
+  }
+}
