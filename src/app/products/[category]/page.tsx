@@ -1,7 +1,5 @@
-// "use client"
 import Container from "@/components/Container";
 import React from "react";
-// import { data } from "@/constants/data";
 import { IProduct } from "@/types";
 import Product from "@/components/Product";
 
@@ -14,7 +12,6 @@ interface Props {
 // Здесь нужно будет переписать адрес сервера, когда я создам новый;
 const getProducts = async (category: string) => {
   const res = await fetch(
-    // "https://nikeapp-backend.onrender.com/api/shop/items"
     `https://nikeapp-backend.onrender.com/api/shop/category/${category}`
   );
   if (!res.ok) {

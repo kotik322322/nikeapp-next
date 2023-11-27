@@ -9,7 +9,7 @@ import { IProduct } from "@/types";
 
 const CartProduct = ({product} : {product: IProduct}) => {
   return (
-    <div className="flex justify-between items-center border border-grey rounded-md " >
+    <div className="flex justify-between items-center border border-grey rounded-md " key={product._id}>
       {/* item photo  */}
       <Link href={`/products/${product.category}/${product._id}`}>
         <Image
