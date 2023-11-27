@@ -1,10 +1,9 @@
 import { IProduct } from "@/types";
-import React from "react";
 import SingleProduct from "./SingleProduct";
 
 interface Props {
   params: {
-    _id: string;
+    _id: string; 
   };
 }
 
@@ -23,4 +22,4 @@ const ProductDetailsPage = async ({ params: { _id } }: Props) => {
   return <SingleProduct product={product} />;
 };
 
-export default ProductDetailsPage;
+export default ProductDetailsPage;  

@@ -1,5 +1,4 @@
 import Container from "@/components/Container";
-import React from "react";
 import { IProduct } from "@/types";
 import Product from "@/components/Product";
 
