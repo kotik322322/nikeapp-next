@@ -4,12 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
-import { IProduct } from "@/types";
+import { ICartProduct } from "@/types";
 
 
-const CartProduct = ({product} : {product: IProduct}) => {
+const CartProduct = ({product} : {product: ICartProduct}) => {
   return (
-    <div className="flex justify-between items-center border border-grey rounded-md " key={product._id}>
+    <div className="px-4 flex justify-between items-center border border-grey rounded-md " key={product._id}>
       {/* item photo  */}
       <Link href={`/products/${product.category}/${product._id}`}>
         <Image
@@ -38,7 +38,7 @@ const CartProduct = ({product} : {product: IProduct}) => {
           </button>
 
           {/* Item Quantity */}
-          <span className="">11</span>
+          <span className="">{product.quantity}</span>
           {/* <span className="">{itemQuantity}</span> */}
 
           <button
@@ -50,7 +50,7 @@ const CartProduct = ({product} : {product: IProduct}) => {
         </div>
 
         {/* item total  */}
-        <span>$ 124</span>
+        <span>$ {product.price * product.quantity}</span>
         {/* item total end */}
 
       </div>

@@ -9,15 +9,14 @@ export interface IProduct {
   isNew?: boolean;
   category?: string;
   sizes?: string[];
-  quantity?: number
 }
-// export interface ILinks {
-//   title: string,
-//   href: string
-// }
+
+export interface ICartProduct extends IProduct {
+  quantity: number
+}
 
 export interface StateProps {
   cart: {
-    productData: [],
+    cartProducts: [],
   }
 }
