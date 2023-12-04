@@ -4,14 +4,15 @@ import { addToCart } from "@/store/cartSlice";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import {useDispatch} from "react-redux"
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 interface ProductProps {
   product: IProduct;
 }
 
 const Product = ({ product }: ProductProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <div className="w-full relative bg-[#f6f6f6] border border-grey rounded-sm">
       {product && product.isNew && (
@@ -24,7 +25,6 @@ const Product = ({ product }: ProductProps) => {
         key={product?._id}
         href={{
           pathname: `${product.category}/${product._id}`,
-          
         }}
         // href={{ pathname: "/products", query: { _id: product._id } }}
         className="block overflow-hidden"
@@ -46,7 +46,18 @@ const Product = ({ product }: ProductProps) => {
         </div>
 
         <div>
-          <button className="bg-black text-white px-3 py-2 rounded-full text-[12px] hover:bg-bgHover duration-200">
+          <button
+            onClick={() =>
+              dispatch(addToCart(product)) &&
+              toast.success(
+                <div>
+                  <span className="font-bold">{product.title}</span> added to
+                  the cart
+                </div>
+              )
+            }
+            className="bg-black text-white px-3 py-2 rounded-full text-[12px] hover:bg-bgHover duration-200"
+          >
             Add to Cart
           </button>
         </div>

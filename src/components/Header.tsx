@@ -1,4 +1,6 @@
 "use client"
+
+import React, { useEffect } from 'react'
 //Components
 import Container from "./Container";
 import Sidebar from "./Sidebar";
@@ -12,6 +14,8 @@ import { usePathname } from "next/navigation";
 import MobileNavigation from "./MobileNav";
 import Logo from "./Logo";
 import { links } from "@/constants/data";
+import { useDispatch, useSelector } from "react-redux";
+import { actualCartQuantity } from '@/store/cartSlice';
 
 
 
@@ -19,7 +23,7 @@ import { links } from "@/constants/data";
 const Header = () => {
 
   const pathName = usePathname()
-   
+
     return (
     <header className="w-full h-20 my-auto sticky top-0 right-0 left-0 bg-white shadow-sm z-20">
       <Container>

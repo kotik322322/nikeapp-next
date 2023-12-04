@@ -1,16 +1,17 @@
-"use client"
+"use client";
 
 import { IoBagCheckOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { addToCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-import Container from '@/components/Container'
-import ProductSlider from '@/components/ProductSlider'
-import { IProduct } from '@/types'
+import Container from "@/components/Container";
+import ProductSlider from "@/components/ProductSlider";
+import { IProduct } from "@/types";
+import Button from "@/components/Button";
 
-const SingleProduct = ({product}:{product: IProduct}) => {
-  const dispatch = useDispatch()
+const SingleProduct = ({ product }: { product: IProduct }) => {
+  const dispatch = useDispatch();
   return (
     <Container>
       <div>
@@ -40,13 +41,21 @@ const SingleProduct = ({product}:{product: IProduct}) => {
                 <button
                   onClick={() =>
                     dispatch(addToCart(product)) &&
-                    toast.success("You added to cart")
+                    toast.success(
+                      <div>
+                        <span className="font-bold">
+                          {product.title}
+                        </span>{" "}
+                        added to the cart
+                      </div>
+                    )
                   }
                   className="w-full py-3 flex items-center justify-center gap-x-4 rounded-full bg-black text-white hover:bg-bgHover duration-200"
                 >
                   Add to Bag
                   <IoBagCheckOutline className="text-xl" />
                 </button>
+
 
                 <button
                   className="w-full py-3 flex items-center justify-center gap-x-4 border border-1 border-black  rounded-full  text-black hover:shadow-xl duration-200 "
@@ -62,7 +71,7 @@ const SingleProduct = ({product}:{product: IProduct}) => {
         </div>
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default SingleProduct
+export default SingleProduct;

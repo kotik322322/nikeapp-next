@@ -5,11 +5,17 @@ import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { ICartProduct } from "@/types";
+import { useDispatch } from "react-redux";
+import { decrement, increment, removeFromCart } from "@/store/cartSlice";
+import toast from "react-hot-toast";
 
-
-const CartProduct = ({product} : {product: ICartProduct}) => {
+const CartProduct = ({ product }: { product: ICartProduct }) => {
+  const dispatch = useDispatch();
   return (
-    <div className="px-4 flex justify-between items-center border border-grey rounded-md " key={product._id}>
+    <div
+      className="px-4 flex justify-between items-center border border-grey rounded-md "
+      key={product._id}
+    >
       {/* item photo  */}
       <Link href={`/products/${product.category}/${product._id}`}>
         <Image
@@ -23,7 +29,6 @@ const CartProduct = ({product} : {product: ICartProduct}) => {
       {/* item photo end */}
 
       <div className="flex flex-col md:flex-row w-full md:justify-around items-center justify-center gap-y-2  ">
-
         {/* item price  */}
         <span>$ {product.price}</span>
         {/* item price end */}
@@ -32,8 +37,8 @@ const CartProduct = ({product} : {product: ICartProduct}) => {
         <div className="flex items-center justify-center gap-x-3 font-semibold text-[12px] md:text-base">
           <button
             className="w-6 h-6  text-center rounded-full  bg-black hover:bg-bgHover text-white"
-            // onClick={() => dispatch(decreaseCart(item))}
-            >
+            onClick={() => dispatch(decrement(product))}
+          >
             -
           </button>
 
@@ -43,7 +48,7 @@ const CartProduct = ({product} : {product: ICartProduct}) => {
 
           <button
             className="w-6 h-6  text-center rounded-full bg-black hover:bg-bgHover text-white"
-            // onClick={() => dispatch(increaseCart(item))}
+            onClick={() => dispatch(increment(product))}
           >
             +
           </button>
@@ -52,14 +57,18 @@ const CartProduct = ({product} : {product: ICartProduct}) => {
         {/* item total  */}
         <span>$ {product.price * product.quantity}</span>
         {/* item total end */}
-
       </div>
 
       {/* Delete item*/}
       <button
         className="rounded-full p-[8px] hover:bg-grey duration-200"
         onClick={() => {
-          // dispatch(removeFromCart(item));
+          dispatch(removeFromCart(product)) &&
+            toast.success(
+              <div>
+                <span className="font-bold">{product.title}</span> deleted from cart
+              </div>
+            );
         }}
       >
         <AiOutlineClose />
@@ -71,4 +80,3 @@ const CartProduct = ({product} : {product: ICartProduct}) => {
 };
 
 export default CartProduct;
-

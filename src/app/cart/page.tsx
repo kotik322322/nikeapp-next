@@ -1,11 +1,15 @@
 "use client";
+
 import Container from "@/components/Container";
 import CartProduct from "@/components/CartProduct";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ICartProduct, StateProps } from "@/types";
+import { clearCart } from "@/store/cartSlice";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const { cartProducts: data } = useSelector((state: StateProps) => state.cart);
+  const dispatch = useDispatch();
 
   // console.log(data);
   return (
@@ -18,6 +22,19 @@ const Cart = () => {
             <CartProduct product={product} key={index} />
           ))}
       </div>
+
+      <button
+        className="bg-black w-20 h-5 text-white"
+        onClick={() => dispatch(clearCart()) && toast.success(
+          <div>
+            <span className="font-bold">
+              Product Deleted From Cart
+            </span>
+          </div>
+        )}
+      >
+        Clear Cart
+      </button>
     </Container>
   );
 };
