@@ -1,11 +1,7 @@
-import { ICartProduct, IProduct } from "@/types";
+import { ICartProduct, IProduct, StoreState } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
 
-interface StoreState {
-  cartProducts: ICartProduct[];
-  cartTotalQuantity: number;
-}
+
 
 const initialState: StoreState = {
   cartProducts: [],

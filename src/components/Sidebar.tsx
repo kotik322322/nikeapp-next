@@ -6,15 +6,16 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { actualCartQuantity } from "@/store/cartSlice";
+import { StateProps } from "@/types";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const { cartProducts } = useSelector((state) => state.cart);
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartProducts } = useSelector((state: StateProps) => state.cart);
+  const { cartTotalQuantity } = useSelector((state: StateProps) => state.cart);
   console.log(cartProducts);
   useEffect(() => {
     dispatch(actualCartQuantity());
-  }, [cartProducts]);
+  }, [dispatch, cartProducts]);
 
   return (
     <div className=" flex items-center gap-x-3 ">
@@ -50,7 +51,7 @@ const Sidebar = () => {
           className=""
         />
         <span className="absolute -top-1 -right-2 w-5 h-5 flex justify-center items-center rounded-full bg-grey">
-        {cartTotalQuantity}
+          {cartTotalQuantity}
         </span>
       </Link>
       {/* sidebar  end */}

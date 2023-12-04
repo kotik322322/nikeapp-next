@@ -18,5 +18,11 @@ export interface ICartProduct extends IProduct {
 export interface StateProps {
   cart: {
     cartProducts: [],
+    cartTotalQuantity: number
   }
+}
+
+export interface StoreState {
+  cartProducts: ICartProduct[];
+  cartTotalQuantity: number;
 }
