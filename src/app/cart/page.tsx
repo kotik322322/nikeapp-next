@@ -25,18 +25,19 @@ const Cart = () => {
 
       <button
         className="bg-black w-20 h-5 text-white"
-        onClick={() => dispatch(clearCart()) && toast.success(
-          <div>
-            <span className="font-bold">
-              Product Deleted From Cart
-            </span>
-          </div>
-        )}
+        onClick={() =>
+          dispatch(clearCart()) &&
+          toast.success(
+            <div>
+              <span className="font-bold">Product Deleted From Cart</span>
+            </div>
+          )
+        }
       >
-        Clear Cart
+        Clear Bag
       </button>
     </Container>
   );
 };
 
-export default Cart;
+export default Cart

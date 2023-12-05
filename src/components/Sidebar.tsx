@@ -12,7 +12,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const { cartProducts } = useSelector((state: StateProps) => state.cart);
   const { cartTotalQuantity } = useSelector((state: StateProps) => state.cart);
-  console.log(cartProducts);
+
   useEffect(() => {
     dispatch(actualCartQuantity());
   }, [dispatch, cartProducts]);

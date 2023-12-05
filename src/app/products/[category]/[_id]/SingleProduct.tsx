@@ -9,6 +9,7 @@ import Container from "@/components/Container";
 import ProductSlider from "@/components/ProductSlider";
 import { IProduct } from "@/types";
 import Button from "@/components/Button";
+import { addToWishlist } from "@/store/wishlistSlice";
 
 const SingleProduct = ({ product }: { product: IProduct }) => {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const SingleProduct = ({ product }: { product: IProduct }) => {
                   }
                   className="w-full py-3 flex items-center justify-center gap-x-4 rounded-full bg-black text-white hover:bg-bgHover duration-200"
                 >
-                  Add to Bag
+                  Add to Cart
                   <IoBagCheckOutline className="text-xl" />
                 </button>
 
@@ -60,7 +61,7 @@ const SingleProduct = ({ product }: { product: IProduct }) => {
                 <button
                   className="w-full py-3 flex items-center justify-center gap-x-4 border border-1 border-black  rounded-full  text-black hover:shadow-xl duration-200 "
                   // text="black"
-                  // onClick={() => dispatch(addToWishList(item))}
+                  onClick={() => dispatch(addToWishlist(product))}
                 >
                   Add to Favorite
                   <CiHeart className="text-xl" />
