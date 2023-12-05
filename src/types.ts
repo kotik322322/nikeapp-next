@@ -17,7 +17,7 @@ export interface ICartProduct extends IProduct {
 
 export interface CartState {
   cart: {
-    cartProducts: IProduct[],
+    cartProducts: ICartProduct[],
     cartTotalQuantity: number
   }
 }

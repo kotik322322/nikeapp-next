@@ -3,12 +3,12 @@
 import Container from "@/components/Container";
 import CartProduct from "@/components/CartProduct";
 import { useDispatch, useSelector } from "react-redux";
-import { ICartProduct, StateProps } from "@/types";
+import { ICartProduct, CartState } from "@/types";
 import { clearCart } from "@/store/cartSlice";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  const { cartProducts: data } = useSelector((state: StateProps) => state.cart);
+  const { cartProducts: data } = useSelector((state: CartState) => state.cart);
   const dispatch = useDispatch();
 
   // console.log(data);
