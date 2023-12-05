@@ -1,7 +1,10 @@
-import { ICartProduct, IProduct, StoreState } from "@/types";
+import { ICartProduct, IProduct } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
+interface StoreState {
+  cartProducts: ICartProduct[];
+  cartTotalQuantity: number;
+}
 
 const initialState: StoreState = {
   cartProducts: [],

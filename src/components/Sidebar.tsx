@@ -6,12 +6,13 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { actualCartQuantity } from "@/store/cartSlice";
-import { StateProps } from "@/types";
+import { CartState, WishListState } from "@/types";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const { cartProducts } = useSelector((state: StateProps) => state.cart);
-  const { cartTotalQuantity } = useSelector((state: StateProps) => state.cart);
+  const { cartProducts } = useSelector((state: CartState) => state.cart);
+  const {wishList} = useSelector((state: WishListState) => state.wishList )
+  const { cartTotalQuantity } = useSelector((state: CartState) => state.cart);
 
   useEffect(() => {
     dispatch(actualCartQuantity());
@@ -35,7 +36,7 @@ const Sidebar = () => {
           className=""
         />
         <span className="absolute -top-1 -right-2 w-5 h-5 flex justify-center items-center rounded-full bg-grey">
-          4
+          {wishList.length}
         </span>
       </Link>
 

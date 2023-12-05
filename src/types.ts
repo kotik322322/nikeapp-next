@@ -15,14 +15,16 @@ export interface ICartProduct extends IProduct {
   quantity: number
 }
 
-export interface StateProps {
+export interface CartState {
   cart: {
-    cartProducts: [],
+    cartProducts: IProduct[],
     cartTotalQuantity: number
   }
 }
 
-export interface StoreState {
-  cartProducts: ICartProduct[];
-  cartTotalQuantity: number;
-}
+export interface WishListState {
+  wishList: {
+    wishList: IProduct[]
+  }
+} 
+
