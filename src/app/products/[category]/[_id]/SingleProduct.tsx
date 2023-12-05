@@ -63,7 +63,7 @@ const SingleProduct = ({ product }: { product: IProduct }) => {
                   // text="black"
                   onClick={() => dispatch(addToWishlist(product))}
                 >
-                  Add to Favorite
+                  Add to Wishlist
                   <CiHeart className="text-xl" />
                 </button>
               </div>

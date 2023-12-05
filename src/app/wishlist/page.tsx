@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/components/Container";
-import WishListProduct from "@/components/WishListProduct";
+import WishListProduct from "@/app/wishlist/WishListProduct";
 import { IProduct, WishListState } from "@/types";
 import { useSelector } from "react-redux";
 
