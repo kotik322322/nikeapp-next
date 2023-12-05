@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Container from "@/components/Container";
 import ProductSlider from "@/components/ProductSlider";
 import { IProduct } from "@/types";
-import Button from "@/components/Button";
+// import Button from "@/components/Button";
 import { addToWishlist } from "@/store/wishlistSlice";
 
 const SingleProduct = ({ product }: { product: IProduct }) => {

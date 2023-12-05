@@ -14,7 +14,7 @@ interface WishListProductProps {
 const WishListProduct = ({ product }: WishListProductProps) => {
   const dispatch = useDispatch();
   return (
-    <div className="w-full p-2 flex items-center gap-x-3" key={product._id}>
+    <div className="w-full p-2 flex items-center gap-x-3">
       <Image
         src={product.mainImg}
         alt="Product icon"
