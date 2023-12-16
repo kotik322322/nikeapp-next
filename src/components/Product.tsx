@@ -4,7 +4,7 @@ import { addToCart } from "@/store/cartSlice";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import  {toast} from "sonner";
+import  {toast} from "sonner";  
 import { useDispatch } from "react-redux";
 import ToastSuccess from "./ToastSuccess";
 // import { addToWishlist } from "@/store/wishlistSlice";

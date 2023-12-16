@@ -13,7 +13,7 @@ const CartProduct = ({ product }: { product: ICartProduct }) => {
   const dispatch = useDispatch();
   return (
     <div
-      className="px-4 flex justify-between items-center border border-grey rounded-md "
+      className="p-4 flex justify-between items-center border border-grey rounded-md "
       key={product._id}
     >
       {/* item photo  */}
@@ -27,10 +27,10 @@ const CartProduct = ({ product }: { product: ICartProduct }) => {
         />
       </Link>
       {/* item photo end */}
-
-      <div className="flex flex-col md:flex-row w-full md:justify-around items-center justify-center gap-y-2  ">
+      {/* flex flex-col md:flex-row w-full md:justify-around items-center justify-center gap-y-2   */}
+      <div className="w-full grid grid-rows-3 md:grid-cols-3 md:justify-between gap-y-2 text-center">
         {/* item price  */}
-        <span>$ {product.price}</span>
+        <span className="text-sm">$ {product.price}</span>
         {/* item price end */}
 
         {/* item quantity&& increase and decrease  */}
@@ -43,7 +43,7 @@ const CartProduct = ({ product }: { product: ICartProduct }) => {
           </button>
 
           {/* Item Quantity */}
-          <span className="">{product.quantity}</span>
+          <div className="w-10 text-sm">{product.quantity}</div>
           {/* <span className="">{itemQuantity}</span> */}
 
           <button
@@ -55,7 +55,7 @@ const CartProduct = ({ product }: { product: ICartProduct }) => {
         </div>
 
         {/* item total  */}
-        <span>$ {product.price * product.quantity}</span>
+        <span className="text-sm">$ {(product.price * product.quantity).toFixed(2)}</span>
         {/* item total end */}
       </div>
 
