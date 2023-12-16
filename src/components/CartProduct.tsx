@@ -28,7 +28,7 @@ const CartProduct = ({ product }: { product: ICartProduct }) => {
       </Link>
       {/* item photo end */}
       {/* flex flex-col md:flex-row w-full md:justify-around items-center justify-center gap-y-2   */}
-      <div className="w-full grid grid-rows-3 md:grid-cols-3 md:justify-between gap-y-2 text-center">
+      <div className="w-full grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 md:justify-between gap-y-2 text-center">
         {/* item price  */}
         <span className="text-sm">$ {product.price}</span>
         {/* item price end */}
