@@ -4,12 +4,13 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { addToCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import Container from "@/components/Container";
 import ProductSlider from "@/components/ProductSlider";
 import { IProduct } from "@/types";
 // import Button from "@/components/Button";
 import { addToWishlist } from "@/store/wishlistSlice";
+import ToastSuccess from "@/components/ToastSuccess";
 
 const SingleProduct = ({ product }: { product: IProduct }) => {
   const dispatch = useDispatch();
@@ -42,13 +43,10 @@ const SingleProduct = ({ product }: { product: IProduct }) => {
                 <button
                   onClick={() =>
                     dispatch(addToCart(product)) &&
-                    toast.success(
-                      <div>
-                        <span className="font-bold">
-                          {product.title}
-                        </span>{" "}
-                        added to the cart
-                      </div>
+                    toast(
+                      <ToastSuccess
+                        content={`${product.title} added to the cart`}
+                      />
                     )
                   }
                   className="w-full py-3 flex items-center justify-center gap-x-4 rounded-full bg-black text-white hover:bg-bgHover duration-200"
@@ -57,11 +55,17 @@ const SingleProduct = ({ product }: { product: IProduct }) => {
                   <IoBagCheckOutline className="text-xl" />
                 </button>
 
-
                 <button
                   className="w-full py-3 flex items-center justify-center gap-x-4 border border-1 border-black  rounded-full  text-black hover:shadow-xl duration-200 "
                   // text="black"
-                  onClick={() => dispatch(addToWishlist(product))}
+                  onClick={() =>
+                    dispatch(addToWishlist(product)) &&
+                    toast(
+                      <ToastSuccess
+                        content={`${product.title} added to the wish list`}
+                      />
+                    )
+                  }
                 >
                   Add to Wishlist
                   <CiHeart className="text-xl" />

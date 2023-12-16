@@ -6,6 +6,7 @@ import { IProduct } from "@/types";
 import { useDispatch } from "react-redux";
 import { removeFromWishlist } from "@/store/wishlistSlice";
 import { AiOutlineClose } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 interface WishListProductProps {
   product: IProduct;
@@ -25,7 +26,16 @@ const WishListProduct = ({ product }: WishListProductProps) => {
       <div className="w-full flex flex-col items-center justify-center gap-y-4">
         <div className="w-full flex flex-col items-center justify-between">
           <button
-            onClick={() => dispatch(removeFromWishlist(product))}
+            onClick={() => dispatch(removeFromWishlist(product)) && 
+              toast.success(
+                <div>
+                  <span className="font-bold">
+                    {product.title}
+                  </span>{" "}
+                  deleted from wish list
+                </div>
+              )
+            }
             className="w-6 h-6 flex items-center justify-center rounded-full text-white ml-auto bg-black hover:bg-bgHover duration-200" 
           >
             <AiOutlineClose />

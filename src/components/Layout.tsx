@@ -12,7 +12,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>{children}</PersistGate>
+      <PersistGate persistor={persistor}>{children} </PersistGate>
     </Provider>
   );
 };

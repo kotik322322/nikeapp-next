@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Layout from "@/components/Layout";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[#f6f6f6]`}>
-        <Toaster toastOptions={{ style:{background:'rgb(51 65 85)', color:'#fff'}}} position="bottom-left" />
+        <Toaster
+          toastOptions={{
+            style: { background: "black", color: "#fff" },
+          }}
+          position="bottom-left"
+        />
         <Layout>
           <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              {children}
+            </main>
           </div>
           <Footer />
         </Layout>

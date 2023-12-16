@@ -1,9 +1,8 @@
 import { IProduct } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
 interface WishListState {
-  wishList: IProduct[]
+  wishList: IProduct[];
 }
 
 const initialState: WishListState = {
@@ -15,17 +14,26 @@ export const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addToWishlist: (state: WishListState, action: PayloadAction<IProduct>) => {
-      const existingProduct:IProduct | undefined = state.wishList.find((product: IProduct) => product._id === action.payload._id)
+      const existingProduct: IProduct | undefined = state.wishList.find(
+        (product: IProduct) => product._id === action.payload._id
+      );
 
-      if(existingProduct) {
-        return
+      if (existingProduct) {
+        return;
       } else {
-        state.wishList.push(action.payload)
+        state.wishList.push(action.payload) 
       }
     },
-    removeFromWishlist: (state:WishListState, action: PayloadAction<IProduct>) => {
-      const existingProduct:IProduct | undefined = state.wishList.find((product: IProduct) => product._id === action.payload._id)
-      state.wishList = state?.wishList.filter(product => product._id !== existingProduct?._id)
+    removeFromWishlist: (
+      state: WishListState,
+      action: PayloadAction<IProduct>
+    ) => {
+      const existingProduct: IProduct | undefined = state.wishList.find(
+        (product: IProduct) => product._id === action.payload._id
+      );
+      state.wishList = state?.wishList.filter(
+        (product) => product._id !== existingProduct?._id
+      );
     },
   },
 });

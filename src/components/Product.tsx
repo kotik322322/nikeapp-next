@@ -4,8 +4,10 @@ import { addToCart } from "@/store/cartSlice";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import  {toast} from "sonner";
 import { useDispatch } from "react-redux";
+import ToastSuccess from "./ToastSuccess";
+// import { addToWishlist } from "@/store/wishlistSlice";
 
 interface ProductProps {
   product: IProduct;
@@ -13,6 +15,10 @@ interface ProductProps {
 
 const Product = ({ product }: ProductProps) => {
   const dispatch = useDispatch();
+
+  const logFunc = () => {
+    console.log("first");
+  };
   return (
     <div className="w-full relative bg-[#f6f6f6] border border-grey rounded-sm">
       {product && product.isNew && (
@@ -20,6 +26,10 @@ const Product = ({ product }: ProductProps) => {
           New Arrival
         </span>
       )}
+
+      {/* <div className="absolute top-3 left-5 z-20 cursor-pointer" onClick={() => dispatch(addToWishlist(product))}> 
+        <AiOutlineHeart className="text-2xl text-black"/>
+      </div> */}
 
       <Link
         key={product?._id}
@@ -49,11 +59,8 @@ const Product = ({ product }: ProductProps) => {
           <button
             onClick={() =>
               dispatch(addToCart(product)) &&
-              toast.success(
-                <div>
-                  <span className="font-bold">{product.title}</span> added to
-                  the cart
-                </div>
+              toast(
+                <ToastSuccess content={`${product.title} added to the cart`} />
               )
             }
             className="bg-black text-white px-3 py-2 rounded-full text-[12px] hover:bg-bgHover duration-200"
