@@ -4,7 +4,7 @@ import { addToCart } from "@/store/cartSlice";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import  {toast} from "sonner";  
+import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import ToastSuccess from "./ToastSuccess";
 // import { addToWishlist } from "@/store/wishlistSlice";
@@ -51,23 +51,21 @@ const Product = ({ product }: ProductProps) => {
 
       <div className="grid grid-cols-2 place-items-center">
         <div className="flex flex-col gap-y-2 p-3 text-sm">
-          <h4 className="">{product.title}</h4>
-          <span>$ {product.price}</span>
+          <h4 className="text-sm font-semibold">{product.title}</h4>
+          <span className="font-medium">$ {product.price}</span>
         </div>
 
-        <div>
-          <button
-            onClick={() =>
-              dispatch(addToCart(product)) &&
-              toast(
-                <ToastSuccess content={`${product.title} added to the cart`} />
-              )
-            }
-            className="bg-black text-white px-3 py-2 rounded-full text-[12px] hover:bg-bgHover duration-200"
-          >
-            Add to Cart
-          </button>
-        </div>
+        <button
+          onClick={() =>
+            dispatch(addToCart(product)) &&
+            toast(
+              <ToastSuccess content={`${product.title} added to the cart`} />
+            )
+          }
+          className="bg-black text-white px-4 py-2 rounded-full text-[12px] hover:bg-bgHover duration-200"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

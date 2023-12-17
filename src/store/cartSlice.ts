@@ -55,6 +55,8 @@ export const cartSlice = createSlice({
     },
     clearCart: (state: StoreState) => {
       state.cartProducts = [];
+      // toast("Clear")
+      // console.log('first')
     },
     actualCartQuantity: (state: StoreState) => {
       const quantity = state.cartProducts.reduce(

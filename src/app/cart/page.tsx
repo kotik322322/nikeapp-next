@@ -5,7 +5,6 @@ import CartProduct from "@/components/CartProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { ICartProduct, CartState } from "@/types";
 import { clearCart } from "@/store/cartSlice";
-import toast from "react-hot-toast";
 import Link from "next/link";
 
 const Cart = () => {
@@ -26,15 +25,8 @@ const Cart = () => {
           </div>
 
           <button
-            className="bg-black w-20 h-5 text-white"
-            onClick={() =>
-              dispatch(clearCart()) &&
-              toast.success(
-                <div>
-                  <span className="font-bold">Product Deleted From Cart</span>
-                </div>
-              )
-            }
+            className="px-10 py-2 flex items-center justify-center gap-x-4 rounded-full bg-black text-white hover:bg-bgHover duration-200"
+            onClick={() => dispatch(clearCart())}
           >
             Clear Bag
           </button>

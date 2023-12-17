@@ -23,13 +23,13 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="flex justify-center items-center gap-x-5">
           <span>Info</span>
           <span>Support</span>
           <span>Marketing</span>
         </div>
 
-        <div>
+        <div className="flex justify-center items-center gap-x-5">
           <span>Terms of Uses</span>
           <span>Privacy Police</span>
         </div>
