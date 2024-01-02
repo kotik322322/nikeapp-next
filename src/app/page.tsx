@@ -16,7 +16,7 @@ export default function Home() {
       </div>
       <div className=" text-center absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
         <Link
-          href={"/products/all"}
+          href={"/products/"}
           className="px-10 py-4 md:px-20 md:hover:px-40 items-center justify-center rounded-full border  border-white text-white  bg-black bg-opacity-20  hover:bg-opacity-40  hoverEffect"
         >
           Shop Now

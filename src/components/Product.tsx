@@ -16,9 +16,7 @@ interface ProductProps {
 const Product = ({ product }: ProductProps) => {
   const dispatch = useDispatch();
 
-  const logFunc = () => {
-    console.log("first");
-  };
+
   return (
     <div className="w-full relative bg-[#f6f6f6] border border-grey rounded-sm">
       {product && product.isNew && (

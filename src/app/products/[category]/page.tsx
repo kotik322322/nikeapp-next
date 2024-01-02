@@ -1,35 +1,27 @@
 import Container from "@/components/Container";
-import { IProduct } from "@/types";
 import Product from "@/components/Product";
+import { IProduct } from "@/types";
 
 interface Props {
   params: {
-    category: string
-  }
+    category: string;
+  };
 }
 
-// Здесь нужно будет переписать адрес сервера, когда я создам новый;
-const getProducts = async (category: string) => {
-  const res = await fetch(
-    `https://nikeapp-backend.onrender.com/api/shop/category/${category}`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+const getProductsByCategory = async (category: string) => {
+  const { data } = await fetch(
+    `http://localhost:3000/api/products/${category}`
+  ).then((res) => res.json());
+  return data;
 };
 
-const Products = async ({params: {category}} : Props) => {
-
-  const data = await getProducts(category);
-
+const page = async ({ params: { category } }: Props) => {
+  const productList = await getProductsByCategory(category);
   return (
-    <Container className="my-20">
-      <p className="capitalize text-2xl font-medium my-4">{category}</p>
-
+    <Container>
+      <h2 className="capitalize text-2xl font-medium my-4">{category}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {data?.map((product: IProduct) => (
+        {productList.map((product: IProduct) => (
           <Product product={product} key={product._id} />
         ))}
       </div>
@@ -37,4 +29,4 @@ const Products = async ({params: {category}} : Props) => {
   );
 };
 
-export default Products;
+export default page;
