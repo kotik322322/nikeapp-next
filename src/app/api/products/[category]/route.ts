@@ -2,7 +2,7 @@ import dbConnect from "@/lib/dbConnect";
 import Item from "@/lib/models/Item";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request:NextRequest, { params }, res: NextResponse) {
+export async function GET(request:NextRequest, {params}: { params: {category: string} }, res: NextResponse) {
   const {category} = params
   // console.log(categories)
   try {
